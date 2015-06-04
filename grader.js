@@ -23,8 +23,10 @@ The user enters 'banana' and the second case evaluates to "'banana' === 'banana'
 
       case (100 < grade):
         return 'Not a number from 0 to 100';
-      case (90 <= grade && grade <= 100):
+      case (grade === 100):
         return 'Awesome!';
+      case (90 <= grade && grade <= 100):
+        return 'A';
       case (80 <= grade && grade <= 89):
         return 'B';
       case (70 <= grade && grade <= 79):
@@ -87,20 +89,39 @@ The user enters 'banana' and the second case evaluates to "'banana' === 'banana'
       sum += el;
     });
     return (sum / grades1.length);
-  }
+  },
 
-/*
-  medianScore: function medianScore(grades) {
 
-    grades.sort( function(a,b) {return a - b;} );
+  medianScore: function medianScore(grades2) {
+    grades2.sort( function(a,b) {return a - b;} );
 
-    var half = Math.floor(grades.length/2);
+    var half = Math.floor(grades2.length/2);
 
-    if(grades.length % 2)
-        return grades[half];
+    if (grades2.length % 2)
+      return grades2[half];
     else
-        return (grades[half-1] + grades[half]) / 2.0;
+      return (grades2[half-1] + grades2[half]) / 2.0;
+  },
+
+  modeScore: function modeScore(grades3) {
+    if (grades3.length === 0)
+    	return null;
+    var modeMap = {};
+    var maxEl = grades3[0], maxCount = 1;
+    for(var i = 0; i < grades3.length; i++)
+    {
+    	var el = grades3[i];
+    	if (modeMap[el] == null)
+    		modeMap[el] = 1;
+    	else
+    		modeMap[el]++;
+    	if(modeMap[el] > maxCount)
+    	{
+    		maxEl = el;
+    		maxCount = modeMap[el];
+    	}
+    }
+    return maxEl;
   }
-*/
 
 };
