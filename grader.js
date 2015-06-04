@@ -6,13 +6,11 @@ module.exports = {
 e.g., strings or numbers. Logical expressions such as "(90 <= grade && grade <= 100)"
 evaluate to true or false. E.g., the first case would evaluate to
 "(100 < grade) === grade". In constrast, with strings you could write
-
 switch (fruit) {
   case ('alfafa'):
     return 'horse';
   case ('banana'):
     return 'chimpanzee';
-
 The user enters 'banana' and the second case evaluates to "'banana' === 'banana'".
 */
 
@@ -93,30 +91,33 @@ The user enters 'banana' and the second case evaluates to "'banana' === 'banana'
 
 
   medianScore: function medianScore(grades2) {
-    grades2.sort( function(a,b) {return a - b;} );
+    grades2.sort( function(a, b) {return a - b; } );
 
-    var half = Math.floor(grades2.length/2);
+    var half = Math.floor(grades2.length / 2);
 
-    if (grades2.length % 2)
+    if (grades2.length % 2) {
       return grades2[half];
-    else
-      return (grades2[half-1] + grades2[half]) / 2.0;
+    }
+    else {
+      return (grades2[half - 1] + grades2[half]) / 2.0;
+    }
   },
 
   modeScore: function modeScore(grades3) {
-    if (grades3.length === 0)
+    if (grades3.length === 0) {
     	return null;
+    }
     var modeMap = {};
     var maxEl = grades3[0], maxCount = 1;
-    for(var i = 0; i < grades3.length; i++)
-    {
+    for(var i = 0; i < grades3.length; i++) {
     	var el = grades3[i];
-    	if (modeMap[el] == null)
+    	if (modeMap[el] == null) {
     		modeMap[el] = 1;
-    	else
+      }
+    	else {
     		modeMap[el]++;
-    	if(modeMap[el] > maxCount)
-    	{
+      }
+    	if(modeMap[el] > maxCount) {
     		maxEl = el;
     		maxCount = modeMap[el];
     	}
